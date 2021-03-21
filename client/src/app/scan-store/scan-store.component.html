@@ -1,0 +1,34 @@
+<div class="container mt-5">
+    <div style="text-align: center;">
+        <h1>test</h1>
+
+        <div style="display: inline-block; text-align: left;">
+            <p *ngFor='let item of items'>Name: {{item.name}} price: {{item.price}}</p>
+        </div>
+    </div>
+
+    <div class="shadow p-5 mb-5 bg-white rounded">
+        <div class="row" style="text-align: center;" >
+            <div class="col-3 border-right " >
+                Quantity Sold
+                <div class="input-group ">
+                    <p class="pr-3 " >Min</p> <input type="text" class="completer-input form-control mdb-autocomplete" placeholder="0"/>
+                </div>
+                <div class="input-group ">
+                    <p class="pr-3 " >Max</p> <input type="text" class="completer-input form-control mdb-autocomplete" placeholder="0"/>
+                </div>
+          
+            </div>
+            <div class="col-3 border-right">
+              One of three columns
+            </div>
+            <div class="col-3 border-right">
+              One of three columns
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-outline-primary" style="width: 150px;">Search</button>
+              </div>
+          </div>      
+    </div>
+
+</div>
