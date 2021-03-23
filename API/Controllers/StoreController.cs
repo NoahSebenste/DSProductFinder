@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-//using StoreScannerLibrary;
+using StoreScannerLibrary;
 
 namespace API.Controllers
 {
@@ -15,7 +15,7 @@ namespace API.Controllers
         {
         }
 
-/*
+
         //can be called by https://localhost:5001/api/Store
         [HttpGet]
         public async Task<ActionResult<IEnumerable<EbayItem>>> GetItems()
@@ -24,8 +24,11 @@ namespace API.Controllers
 
             return await Task.Run(() => EbayStoreScanner.GenerateList());
         }
-*/
-                //can be called by https://localhost:5001/api/Store
+
+
+        /*
+        //can be called by https://localhost:5001/api/Store
+
         [HttpGet]
         public ActionResult<IEnumerable<string>> Test()
         {
@@ -34,7 +37,7 @@ namespace API.Controllers
             return new string[] {"value1", "value2", "value3"};
         }
 
-
+        */
 
 
 

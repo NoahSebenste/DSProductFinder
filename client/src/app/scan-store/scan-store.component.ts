@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { DataTableItem } from '../data-table/data-table-datasource';
+import { EbayStoreService } from '../_services/ebay-store.service';
 
 @Component({
   selector: 'app-scan-store',
@@ -8,20 +11,20 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./scan-store.component.css']
 })
 export class ScanStoreComponent implements OnInit {
-  items: any;
-  baseUrl = environment.apiUrl
+  items: DataTableItem[];
+  
 
-  constructor(private http: HttpClient) { }
+  constructor(private storeService: EbayStoreService) { }
 
   ngOnInit(): void {
-    this.getItems();
+    //this.loadItems();
   }
 
-  getItems() {
-    this.http.get(this.baseUrl + 'Store').subscribe(response => {
-      this.items = response;
-    }, error => {
-      console.log(error);
+ 
+
+  loadItems() {
+    this.storeService.getItems().subscribe(items => {
+      this.items = items;
     })
   }
 
