@@ -37,8 +37,29 @@ namespace API.Controllers
             return new string[] {"value1", "value2", "value3"};
         }
 
-        */
+        
 
+        public static List<EbayItem> GenerateList()
+        {
+            StoreScannerLibrary.EbayItem e = new StoreScannerLibrary.EbayItem();
+            List<EbayItem> items = new List<EbayItem>();
+            items.Add(new EbayItem
+            {
+                name = "lawn mower",
+                price = 26.99,
+                numberSold = 3
+            });
+            items.Add(new EbayItem
+            {
+                name = "flower pot",
+                price = 14.99,
+                numberSold = 4
+            });
+
+
+            return items;
+        }
+        */
 
 
     }

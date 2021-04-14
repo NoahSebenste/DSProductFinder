@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
@@ -15,20 +15,13 @@ export class DataTableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<DataTableItem>;
+  @Input() inputItems: DataTableItem[];
   dataSource: DataTableDataSource;
   dataSource2 = new MatTableDataSource<DataTableItem>();
   items: DataTableItem[];
-   data: DataTableItem[] = [
-    {numberSold: 1, name: 'Hydrogasdfen', price: 20},
-    {numberSold: 12, name: 'Hydroasdfgen', price: 20},
-    {numberSold: 13, name: 'Hydrasdfogen', price: 20},
-    {numberSold: 14, name: 'Hydrogadfsen', price: 20},
-    {numberSold: 15, name: 'Hydroadsfgen', price: 20},
-    {numberSold: 16, name: 'Hyasdfdrogen', price: 20},
-  ];
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['name', 'price', 'numberSold'];
+  displayedColumns = ['imgUrl', 'name', 'price', 'numberSold', 'url'];
 
   constructor(private storeService: EbayStoreService) {
     this.dataSource = new DataTableDataSource();

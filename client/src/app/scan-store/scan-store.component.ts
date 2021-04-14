@@ -1,9 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DataTableItem } from '../data-table/data-table-datasource';
 import { EbayStoreService } from '../_services/ebay-store.service';
+import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 
 @Component({
   selector: 'app-scan-store',
@@ -12,12 +10,12 @@ import { EbayStoreService } from '../_services/ebay-store.service';
 })
 export class ScanStoreComponent implements OnInit {
   items: DataTableItem[];
-  
+  model: any = {};
 
   constructor(private storeService: EbayStoreService) { }
 
   ngOnInit(): void {
-    //this.loadItems();
+
   }
 
  
@@ -27,5 +25,16 @@ export class ScanStoreComponent implements OnInit {
       this.items = items;
     })
   }
+
+  scanStore() {
+    console.log(this.model);
+    this.storeService.getItems().subscribe(items => {
+      this.items = items;
+      console.log("displaying fetched items from form");
+      console.log(this.items);
+    })
+
+  }
+
 
 }

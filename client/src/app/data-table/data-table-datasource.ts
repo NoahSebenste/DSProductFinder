@@ -10,17 +10,10 @@ export interface DataTableItem {
   name: string;
   price: number;
   numberSold: number;
+  imgUrl: string;
+  url: string;
 }
 
-// TODO: replace this with real data from your application
-const EXAMPLE_DATA: DataTableItem[] = [
-  {numberSold: 1, name: 'Hydrogasdfen', price: 20},
-  {numberSold: 12, name: 'Hydroasdfgen', price: 20},
-  {numberSold: 13, name: 'Hydrasdfogen', price: 20},
-  {numberSold: 14, name: 'Hydrogadfsen', price: 20},
-  {numberSold: 15, name: 'Hydroadsfgen', price: 20},
-  {numberSold: 16, name: 'Hyasdfdrogen', price: 20},
-];
 
 /**
  * Data source for the DataTable view. This class should

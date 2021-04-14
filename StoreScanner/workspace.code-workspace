@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "..\\API\\bin\\Release\\net5.0\\publish"
+		}
+	],
+	"settings": {}
+}
