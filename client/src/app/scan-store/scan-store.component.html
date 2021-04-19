@@ -18,7 +18,7 @@
                     <p>Quantity Sold</p>
                     <mat-form-field style="width: 82%;">
                         <mat-label>Min</mat-label>
-                        <input matInput name="minQuantitySold" [(ngModel)]="model.minQuantitySold">
+                        <input matInput value="0" name="minQuantitySold" [(ngModel)]="model.minQuantitySold">
                     </mat-form-field>
                     <mat-form-field style="width: 82%;">
                         <mat-label>Max</mat-label>
@@ -59,4 +59,4 @@
     </div>
 
 </div>
-<app-data-table ></app-data-table>
+<app-data-table [inputItems]="items"></app-data-table>

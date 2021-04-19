@@ -16,10 +16,13 @@ namespace StoreScannerLibrary
             items.Add(new EbayItem
             {
                 name = "MASH - Season 2 (DVD, 2002, 3-Disc Set, Collector&#039;s Edition) - Free Shipping",
-                price = 26.99,
-                numberSold = 3,
+                price = 9.99,
+                numberSold = 2,
                 url = @"https://www.ebay.com/itm/MASH-Season-2-DVD-2002-3-Disc-Set-Collectors-Edition-Free-Shipping/224336621471?hash=item343b812f9f:g:uXsAAOSwbqlgGKtg",
-                imgUrl = @"https://i.ebayimg.com/thumbs/images/g/uXsAAOSwbqlgGKtg/s-l225.jpg"
+                imgUrl = @"https://i.ebayimg.com/thumbs/images/g/uXsAAOSwbqlgGKtg/s-l225.jpg",
+                soldData = {
+
+                }
             });
             items.Add(new EbayItem
             {
@@ -27,9 +30,13 @@ namespace StoreScannerLibrary
                 price = 26.99,
                 numberSold = 3,
                 url = @"https://www.ebay.com/itm/MASH-Season-2-DVD-2002-3-Disc-Set-Collectors-Edition-Free-Shipping/224336621471?hash=item343b812f9f:g:uXsAAOSwbqlgGKtg",
-                imgUrl = @"https://i.ebayimg.com/thumbs/images/g/uXsAAOSwbqlgGKtg/s-l225.jpg"
+                imgUrl = @"https://i.ebayimg.com/thumbs/images/g/uXsAAOSwbqlgGKtg/s-l225.jpg",
+                soldData = new List<SoldData>()
             });
 
+            items[1].soldData.Add(new SoldData {
+                quantitySold = 1
+            });
 
             return items;
         }
@@ -150,14 +157,17 @@ namespace StoreScannerLibrary
                 //gather the quantity nodes
                 HtmlNode[] quantityNodes = document.DocumentNode.SelectNodes("//td[@align='middle']").ToArray();
                 //populate the sold data
+                ebayItem.soldData = new List<SoldData>();
                 for (int x = 0; x < dateNodes.Length; x++)
                 {
                     //Console.WriteLine("Quantity sold: " + quantityNodes[x].InnerText + " Date: " + dateNodes[x].InnerText);
+
                     ebayItem.soldData.Add(new SoldData
                     {
                         quantitySold = Int32.Parse(quantityNodes[x].InnerText),
                         dateSold = dateNodes[x].InnerText
                     });
+
                 }
 
             }

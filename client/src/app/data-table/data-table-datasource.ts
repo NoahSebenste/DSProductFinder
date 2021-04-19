@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { EbayStoreService } from '../_services/ebay-store.service';
+import { SoldData } from '../_entities/SoldData';
 
 // TODO: Replace this with your own data model type
 export interface DataTableItem {
@@ -12,6 +13,7 @@ export interface DataTableItem {
   numberSold: number;
   imgUrl: string;
   url: string;
+  soldData: SoldData[];
 }
 
 

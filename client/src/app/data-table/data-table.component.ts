@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, OnInit, ViewChild, Input } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
@@ -11,11 +11,11 @@ import { DataTableDataSource, DataTableItem } from './data-table-datasource';
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.css']
 })
-export class DataTableComponent implements OnInit, AfterViewInit {
+export class DataTableComponent implements OnInit, AfterViewInit, OnChanges {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<DataTableItem>;
-  @Input() inputItems: DataTableItem[];
+  @Input() inputItems: DataTableItem[] = [];
   dataSource: DataTableDataSource;
   dataSource2 = new MatTableDataSource<DataTableItem>();
   items: DataTableItem[];
@@ -25,15 +25,20 @@ export class DataTableComponent implements OnInit, AfterViewInit {
 
   constructor(private storeService: EbayStoreService) {
     this.dataSource = new DataTableDataSource();
-    //this.loadItems();
-    
+ 
     
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+      console.log("child input items");
+      console.log(this.inputItems);
+      this.dataSource2.data = this.inputItems.slice();
+
+      this.dataSource2.data = this.dataSource2.data;
+  }
+
   ngOnInit(): void {
-    this.loadItems();
-
-
+ 
   }
 
   loadItems() {

@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { ScanStoreComponent } from './scan-store/scan-store.component';
-import { ResultsTableComponent } from './results-table/results-table.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -24,7 +23,6 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     NavComponent,
     ScanStoreComponent,
-    ResultsTableComponent,
     DataTableComponent
   ],
   imports: [
