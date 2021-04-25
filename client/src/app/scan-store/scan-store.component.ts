@@ -40,6 +40,7 @@ export class ScanStoreComponent implements OnInit {
 
       let filteredItems = items;
       
+      console.log(this.model);
       
 
       if(minQuantitySold !== null && minQuantitySold !== undefined && !isNaN(minQuantitySold) && minQuantitySold !== "")
@@ -73,7 +74,8 @@ export class ScanStoreComponent implements OnInit {
      
       this.items = filteredItems;
       console.log("Parent items");
-      console.log(items);
+      //items[0].soldTimeFrame = 4;
+      //console.log(items[0].soldTimeFrame);
     });
 
 

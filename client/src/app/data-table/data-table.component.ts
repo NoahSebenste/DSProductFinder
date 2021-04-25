@@ -21,7 +21,7 @@ export class DataTableComponent implements OnInit, AfterViewInit, OnChanges {
   items: DataTableItem[];
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['imgUrl', 'name', 'price', 'numberSold', 'url'];
+  displayedColumns = ['imgUrl', 'name', 'price', 'timeFrameSold' ,'numberSold', 'url'];
 
   constructor(private storeService: EbayStoreService) {
     this.dataSource = new DataTableDataSource();

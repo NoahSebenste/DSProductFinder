@@ -14,6 +14,7 @@ export interface DataTableItem {
   imgUrl: string;
   url: string;
   soldData: SoldData[];
+  soldTimeFrame: number;
 }
 
 

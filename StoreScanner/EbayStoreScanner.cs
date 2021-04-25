@@ -34,10 +34,11 @@ namespace StoreScannerLibrary
                 soldData = new List<SoldData>()
             });
 
-            items[1].soldData.Add(new SoldData {
+            items[1].soldData.Add(new SoldData
+            {
                 quantitySold = 1
             });
-
+            Thread.Sleep(3000);
             return items;
         }
 
