@@ -3,6 +3,7 @@ import { DataTableItem } from '../data-table/data-table-datasource';
 import { EbayStoreService } from '../_services/ebay-store.service';
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 import { Observable } from 'rxjs';
+import { BusyService } from '../_services/busy.service';
 
 @Component({
   selector: 'app-scan-store',
@@ -14,7 +15,7 @@ export class ScanStoreComponent implements OnInit {
   observableItems: Observable<DataTableItem[]>;
   model: any = {};
 
-  constructor(private storeService: EbayStoreService) { }
+  constructor(private storeService: EbayStoreService, private busyService: BusyService) { }
 
   ngOnInit(): void {
 
@@ -26,6 +27,10 @@ export class ScanStoreComponent implements OnInit {
     this.storeService.getItems().subscribe(items => {
       this.items = items;
     })
+  }
+
+  isBusy(): boolean {
+    return this.busyService.busyRequestCount > 0;
   }
 
   scanStore() {

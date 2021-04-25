@@ -38,7 +38,7 @@ namespace StoreScannerLibrary
             {
                 quantitySold = 1
             });
-            Thread.Sleep(3000);
+            
             return items;
         }
 

@@ -59,4 +59,11 @@
     </div>
 
 </div>
-<app-data-table [inputItems]="items"></app-data-table>
+
+
+<div *ngIf="isBusy()" style="position: relative" class="p-5 mb-5">
+    <ngx-spinner>
+        <h3>Loading...</h3>
+    </ngx-spinner>
+</div>
+<app-data-table *ngIf="!isBusy()" [inputItems]="items"></app-data-table>
